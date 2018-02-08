@@ -1,0 +1,25 @@
+{
+    "characters": [
+        {
+            "name": "Grandad",
+            "lines": [
+                {"greeting": ""},
+                {"description": ""}
+            ]
+        },
+        {
+            "name": "Stranger",
+            "lines": [
+                {"greeting": ""},
+                {"description": ""}
+            ]
+        },
+        {
+            "name": "",
+            "lines": [
+                {"greeting": ""},
+                {"description": ""}
+            ]
+        },
+    ]
+}

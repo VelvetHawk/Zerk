@@ -4,3 +4,9 @@ Person::Person()
 {
 
 }
+
+Person::~Person()
+{
+
+}
+

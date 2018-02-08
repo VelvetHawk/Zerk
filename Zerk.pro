@@ -4,7 +4,10 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT = core gui
+
+# Include testing library
+QT += testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,8 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
+    main.cpp \
+    mainwindow.cpp \
     location.cpp \
     item.cpp \
     object.cpp \
@@ -35,10 +38,15 @@ SOURCES += \
     tests/test_location.cpp \
     tests/test_person.cpp \
     tests/test_object.cpp \
-    tests/test_player.cpp
+    tests/test_player.cpp \
+    scene.cpp \
+    tests/test_scene.cpp \
+    character.cpp \
+    tests/test_character.cpp \
+    jsonparser.cpp
 
 HEADERS += \
-        mainwindow.h \
+    mainwindow.h \
     location.h \
     item.h \
     object.h \
@@ -48,7 +56,18 @@ HEADERS += \
     tests/test_location.h \
     tests/test_person.h \
     tests/test_object.h \
-    tests/test_player.h
+    tests/test_player.h \
+    scene.h \
+    tests/test_scene.h \
+    character.h \
+    tests/test_character.h \
+    jsonparser.h
 
 FORMS += \
-        mainwindow.ui
+    mainwindow.ui
+
+OTHER_FILES +=
+
+DISTFILES += \
+    dialogue.json
+
