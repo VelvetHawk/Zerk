@@ -1,0 +1,28 @@
+<characters>
+    <character>
+        <name>Grandad</name>
+        <description>He's old.</description>
+        <lines>
+            <greeting>Hi.</greeting>
+            <goodbye>Take care.</goodbye>
+        </lines>
+    </character>
+    @
+    <character>
+        <name>Stranger</name>
+        <description>A mysterious stranger.</description>
+        <lines>
+            <greeting>Hello.</greeting>
+            <goodbye>Farewell.</goodbye>
+        </lines>
+    </character>
+    @
+    <character>
+        <name></name>
+        <description></description>
+        <lines>
+            <greeting></greeting>
+            <goodbye></goodbye>
+        </lines>
+    </character>
+</characters>

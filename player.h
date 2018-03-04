@@ -12,9 +12,14 @@ class Player : public Person
 	public:
 		Player();
 		~Player();
-		Item* get_inventory();
-		void add_item(Item* item);
-		void remove_item(Item* item);
+		string get_name() override;
+		void set_name(string name) override;
+		string get_description() override;
+		void set_description(string description) override;
+		Item* get_items() override;
+		bool has_item(Item& item) override;
+		void remove_item(Item& item) override;
+
 
 	private:
 		Item* inventory[];

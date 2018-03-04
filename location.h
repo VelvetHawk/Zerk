@@ -4,6 +4,7 @@
 #include <string>
 #include "item.h"
 #include "object.h"
+#include "character.h"
 
 using std::string;
 
@@ -31,6 +32,7 @@ class Location
 		string description;
 		Object* objects[];
 		Item* droppedItems[];
+		Character* people[];
 };
 
 #endif // LOCATION_H

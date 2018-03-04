@@ -12,13 +12,11 @@ class Scene
 	public:
 		Scene();
 		~Scene();
-		Object scene_objects[];
-		Item scene_items[];
-		Person scene_characters[];
-		Player player;
-		Location scene_locations[];
-
-
+		Object* scene_objects;
+		Item* scene_items;
+		Person* scene_characters;
+		Player* player;
+		Location* scene_locations;
 };
 
 #endif // SCENE_H

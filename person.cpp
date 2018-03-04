@@ -1,10 +1,17 @@
 #include "person.h"
 
-Person::Person()
+/**
+ * @brief
+ */
+Person::Person() :
+	name("Name not set."), description("Description not set.")
 {
 
 }
 
+/**
+ * @brief
+ */
 Person::~Person()
 {
 

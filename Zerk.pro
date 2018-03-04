@@ -6,9 +6,6 @@
 
 QT = core gui
 
-# Include testing library
-QT += testlib
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Zerk
@@ -34,16 +31,9 @@ SOURCES += \
     object.cpp \
     person.cpp \
     player.cpp \
-    tests/test_item.cpp \
-    tests/test_location.cpp \
-    tests/test_person.cpp \
-    tests/test_object.cpp \
-    tests/test_player.cpp \
     scene.cpp \
-    tests/test_scene.cpp \
     character.cpp \
-    tests/test_character.cpp \
-    jsonparser.cpp
+    parser.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -52,16 +42,9 @@ HEADERS += \
     object.h \
     person.h \
     player.h \
-    tests/test_item.h \
-    tests/test_location.h \
-    tests/test_person.h \
-    tests/test_object.h \
-    tests/test_player.h \
     scene.h \
-    tests/test_scene.h \
     character.h \
-    tests/test_character.h \
-    jsonparser.h
+    parser.h
 
 FORMS += \
     mainwindow.ui
@@ -69,5 +52,43 @@ FORMS += \
 OTHER_FILES +=
 
 DISTFILES += \
-    dialogue.json
+    characters.xml \
+    objects.xml \
+    items.xml \
+    locations.xml
+
+Test {
+    message(Running Build with Tests)
+)
+    QT += testlib
+    TARGET = UnitTests
+
+    # Remove main to prevent two main method errors
+    SOURCES -= \
+        main.cpp
+
+    # Import Test Headers
+    HEADERS += \
+        tests/test_item.h \
+        tests/test_location.h \
+        tests/test_person.h \
+        tests/test_object.h \
+        tests/test_player.h \
+        tests/test_scene.h \
+        tests/test_character.h
+
+    # Import Test Sources
+    SOURCES += \
+        tests/test_character.cpp \
+        tests/test_item.cpp \
+        tests/test_location.cpp \
+        tests/test_person.cpp \
+        tests/test_object.cpp \
+        tests/test_player.cpp \
+        tests/test_scene.cpp
+}
+else
+{
+    message(Running Normal Build)
+}
 

@@ -9,8 +9,7 @@ class Item
 {
 	public:
 		Item();
-		Item(string name);
-		~Item();
+		Item(string name, string description);
 		string get_name();
 		void set_name(string name);
 		string get_description();

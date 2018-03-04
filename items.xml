@@ -1,0 +1,10 @@
+<items>
+    <item>
+        <name>Fishing Rod<name>
+        <description>An old fishing rod.</description>
+        <attributes>
+            <pickupable>false</pickupable>
+            <hidden>false</hidden>
+        </attributes>
+    </item>
+</items>

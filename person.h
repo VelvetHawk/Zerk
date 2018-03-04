@@ -11,14 +11,15 @@ class Person
 	public:
 		Person();
 		~Person();
-		string get_name();
-		void set_name(string name);
-		string get_description();
-		void set_description();
-		Item* get_items();
-		bool has_item(Item* item);
+		virtual string get_name() = 0;
+		virtual void set_name(string name) = 0;
+		virtual string get_description() = 0;
+		virtual void set_description(string description) = 0;
+		virtual Item* get_items() = 0;
+		virtual bool has_item(Item& item) = 0;
+		virtual void remove_item(Item& item) = 0;
 
-	private:
+	protected:
 		string name;
 		string description;
 		Item items[];

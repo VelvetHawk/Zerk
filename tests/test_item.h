@@ -9,12 +9,11 @@ using std::string;
 
 class Test_Item: public QObject
 {
-	public:
-		Test_Item();
-
-	private:
-		Item item_to_test;
+	Q_OBJECT
+	private slots:
 		void test_name();
+		void test_description();
+		void test_item();
 };
 
 #endif // TEST_ITEM_H
