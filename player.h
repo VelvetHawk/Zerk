@@ -1,25 +1,24 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
 #include "item.h"
 #include "person.h"
-
-using std::string;
 
 class Player : public Person
 {
 	public:
+		// Constructors/destructors
 		Player();
 		~Player();
-		string get_name() override;
-		void set_name(string name) override;
-		string get_description() override;
-		void set_description(string description) override;
-		Item* get_items() override;
-		bool has_item(Item& item) override;
-		void remove_item(Item& item) override;
-
+		// Functions
+		QString get_name() const override;
+		void set_name(const QString name) override;
+		QString get_description() const override;
+		void set_description(const QString description) override;
+		Item* get_items() const override;
+		bool has_item(const Item &item) const override;
+		void remove_item(const Item &item) override;
+		QString to_string() const override;
 
 	private:
 		Item* inventory[];

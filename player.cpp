@@ -10,37 +10,42 @@ Player::~Player()
 
 }
 
-string Player::get_name()
+QString Player::get_name() const
+{
+	return this->name;
+}
+
+void Player::set_name(const QString name)
+{
+	this->name = name;
+}
+
+QString Player::get_description() const
+{
+	return this->description;
+}
+
+void Player::set_description(const QString description)
+{
+	this->description = description;
+}
+
+Item* Player::get_items() const
 {
 
 }
 
-void Player::set_name(string name)
+bool Player::has_item(const Item &item) const
 {
 
 }
 
-string Player::get_description()
+void Player::remove_item(const Item &item)
 {
 
 }
 
-void Player::set_description(string description)
-{
-
-}
-
-Item* Player::get_items()
-{
-
-}
-
-bool Player::has_item(Item& item)
-{
-
-}
-
-void Player::remove_item(Item& item)
+QString Player::to_string() const
 {
 
 }

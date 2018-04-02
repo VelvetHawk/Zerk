@@ -2,33 +2,66 @@
 #include <QApplication>
 
 #include "parser.h"
-
-#define TOTAL_CHARACTERS 3
-#define TOTAL_ITEMS 1
-#define TOTAL_OBJECTS 3
-#define TOTAL_LOCATIONS 3
+#include <QMap>
 
 int main(int argc, char *argv[])
 {
-//	QApplication a(argc, argv);
-//	MainWindow window;
-//	window.resize(900, 600);
-//	window.setWindowTitle("Zerk: An Original Tale");
-//	window.show();
+	// Init data maps
+	QMap<QString, Character> characters;
+	QMap<QString, Item> items;
+	QMap<QString, Object> objects;
+	QMap<QString, Location> locations;
 
-//	return a.exec();
-
-	// Init data arrays
-	Character* characters = new Character[TOTAL_CHARACTERS];
-	Item* items = new Item[TOTAL_ITEMS];
-	Object* objects = new Object[TOTAL_OBJECTS];
-	Location* locations = new Location[TOTAL_LOCATIONS];
+	// Init player
+	Player *player = new Player();
 
 	// Load data from files
-	Parser::load(TOTAL_CHARACTERS, "../Zerk/characters.xml", characters);
-	Parser::load(TOTAL_ITEMS, "../Zerk/items.xml", items);
-	Parser::load(TOTAL_ITEMS, "../Zerk/objects.xml", objects);
-	Parser::load(TOTAL_ITEMS, "../Zerk/locations.xml", locations);
+	Parser::load("../Zerk/characters.xml", characters);
+	Parser::load("../Zerk/items.xml", items);
+	Parser::load("../Zerk/objects.xml", objects);
+	Parser::load("../Zerk/locations.xml", locations);
 
-	return 0;
+	// Print data (debug only)
+	/*
+	std::cout << "Characters:" << std::endl;
+	for (unsigned i = 0; i < characters.size(); i++)
+		std::cout << i << "). " << characters[i].get_name().toStdString()
+			<< " (" << characters[i].get_description().toStdString() << ")" << std::endl;
+
+	std::cout << "Items:" << std::endl;
+	for (unsigned i = 0; i < items.size(); i++)
+		std::cout << i << "). " << items[i].get_name().toStdString()
+			<< " (" << items[i].get_description().toStdString() << ")" << std::endl;
+
+	std::cout << "Objects:" << std::endl;
+	for (unsigned i = 0; i < objects.size(); i++)
+		std::cout << i << "). " << objects[i].get_name().toStdString()
+			<< " (" << objects[i].get_description().toStdString() << ")" << std::endl;
+
+	std::cout << "Locations:" << std::endl;
+	for (unsigned i = 0; i < locations.size(); i++)
+		std::cout << i << "). " << locations[i].get_name().toStdString()
+			<< " (" << locations[i].get_description().toStdString() << ")" << std::endl;
+	*/
+
+	/*
+	 * Change a pointer arguments to reference arguments
+	 * and dereference all pointer values passed to
+	 * create const reference arguments in all functions
+	 * where data won't be changed
+	 */
+
+	QApplication a(argc, argv);
+	MainWindow window;
+	window.setFixedSize(window.geometry().width(), window.geometry().height()); // Prevent resize
+	window.setWindowTitle("Zerk: An Original Tale");
+
+	// Start game
+	Scene *game = new Scene(objects, items, characters, player, locations);
+
+	window.set_scene(game);
+	window.start();
+	window.show();
+
+	return a.exec();
 }

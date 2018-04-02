@@ -1,11 +1,11 @@
 #ifndef TEST_CHARACTER_H
 #define TEST_CHARACTER_H
 
-#include <string>
+#include <QString>
 #include <QtTest/QtTest>
 #include "item.h"
 
-using std::string;
+using std::QString;
 
 class Test_Character : public QObject
 {

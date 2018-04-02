@@ -1,6 +1,9 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <QMap>
+#include <QString>
+
 #include "item.h"
 #include "location.h"
 #include "object.h"
@@ -10,13 +13,22 @@
 class Scene
 {
 	public:
-		Scene();
+		// Variables
+		QMap<QString, Object> scene_objects;
+		QMap<QString, Item> scene_items;
+		QMap<QString, Character> scene_characters;
+		Player *player;
+		QMap<QString, Location> scene_locations;
+		// Constructors/destructors
+		Scene(QMap<QString, Object> &, QMap<QString, Item> &, QMap<QString, Character> &, Player *, QMap<QString, Location> &);
 		~Scene();
-		Object* scene_objects;
-		Item* scene_items;
-		Person* scene_characters;
-		Player* player;
-		Location* scene_locations;
+		// Functions
+		void start();
+		QString go(const char direction);
+		QString get_current_location();
+
+	private:
+		Location *current_location;
 };
 
 #endif // SCENE_H

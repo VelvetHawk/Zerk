@@ -14,7 +14,7 @@ Item::Item() :
  * @param name - The name you wish to give the item
  * @param description - The description you wish to give the item
  */
-Item::Item(string name, string description) :
+Item::Item(const QString name, const QString description) :
 	name(name), description(description)
 {
 
@@ -23,7 +23,7 @@ Item::Item(string name, string description) :
 /**
  * @brief Returns the name of the Item object
  */
-string Item::get_name()
+QString Item::get_name() const
 {
 	return name;
 }
@@ -32,7 +32,7 @@ string Item::get_name()
  * @brief Sets a new name for the Item object
  * @param name - The new name you wish to give the item
  */
-void Item::set_name(string name)
+void Item::set_name(const QString name)
 {
 	this->name = name;
 }
@@ -40,7 +40,7 @@ void Item::set_name(string name)
 /**
  * @brief Returns the description of the Item object
  */
-string Item::get_description()
+QString Item::get_description() const
 {
 	return description;
 }
@@ -49,7 +49,43 @@ string Item::get_description()
  * @brief Sets a new description for the Item object
  * @param description - The new description you wish to give the item
  */
-void Item::set_description(string description)
+void Item::set_description(const QString description)
 {
 	this->description = description;
+}
+
+/**
+ * @brief
+ * @return
+ */
+bool Item::is_pickupable() const
+{
+	return this->pickupable;
+}
+
+/**
+ * @brief
+ * @return
+ */
+void Item::set_pickupable(const bool pickupable)
+{
+	this->pickupable = pickupable;
+}
+
+/**
+ * @brief
+ * @return
+ */
+bool Item::is_hidden() const
+{
+	return this->hidden;
+}
+
+/**
+ * @brief
+ * @return
+ */
+void Item::set_hidden(const bool hidden)
+{
+	this->hidden = hidden;
 }

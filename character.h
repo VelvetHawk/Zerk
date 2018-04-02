@@ -2,27 +2,29 @@
 #define CHARACTER_H
 
 #include "person.h"
+#include <QMap>
 
 class Character : public Person
 {
 	public:
+		// Constructors/destructors
 		Character();
 		~Character();
-		string get_name() override;
-		void set_name(string name) override;
-		string get_description() override;
-		void set_description(string description) override;
-		Item* get_items() override;
-		bool has_item(Item& item) override;
-		void remove_item(Item& item) override;
-		string get_dialogue(string identifier);
-		void set_dialogue(string identifier, string value);
-		string operator[](string index);
+		// Functions
+		QString get_name() const override;
+		void set_name(const QString name) override;
+		QString get_description() const override;
+		void set_description(const QString description) override;
+		Item* get_items() const override;
+		bool has_item(const Item &item) const override;
+		void remove_item(const Item &item) override;
+		QString get_dialogue(const QString identifier) const;
+		void set_dialogue(const QString identifier, const QString value);
+		QString to_string() const override;
+		QString operator[](const QString index) const;
 
 	private:
-		static const int LINES_MAX = 1;
-		string identifiers[LINES_MAX]; // For dialogue
-		string dialogue[LINES_MAX];
+		QMap<QString, QString> dialogue;
 };
 
 #endif // CHARACTER_H

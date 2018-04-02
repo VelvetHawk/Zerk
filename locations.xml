@@ -1,6 +1,222 @@
 <locations>
     <location>
-        <name></name>
-        <description></description>
+        <name>The Fishing Spot</name>
+        <description>An old dock, primarily used for fishing.</description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>By the Lake</name>
+        <description>
+            You're a decent amount down the the side of the lake. You're very close to the water's edge right now.
+            There's doesn't seem to be much here, apart from some swan droppings.
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Far Down the Lake</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Barely See the Fishing Spot</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>By the Car</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Outer Treeline</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Outer Woodland (N)</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Outer Woodland (NE)</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Junction</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Small Grove</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Strange Trees</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Inner Woodland (W)</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Inner Woodland (E)</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Small Burrow</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Clear Pond</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Clearing</name>
+        <description>
+            ADD DESCRIPTION HERE
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
+    </location>
+    @
+    <location>
+        <name>Old Path</name>
+        <description>
+            ADD DESCRIPTION HERE
+            Robert Frost - Road Not Taken
+        </description>
+        <directions>
+            <north>Can't go North.</north>
+            <east>Can't go East.</east>
+            <south>Can't go South.</south>
+            <west>Can't go West.</west>
+        </directions>
     </location>
 </locations>

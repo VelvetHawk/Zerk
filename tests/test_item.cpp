@@ -7,7 +7,7 @@
 void Test_Item::test_name()
 {
 	Item item;
-	string name = "Spoon";
+	QString name = "Spoon";
 	item.set_name(name);
 	QCOMPARE(item.get_name(), name);
 }
@@ -18,7 +18,7 @@ void Test_Item::test_name()
 void Test_Item::test_description()
 {
 	Item item;
-	string description = "This is a much longer string. This contains the description of the object.";
+	QString description = "This is a much longer QString. This contains the description of the object.";
 	item.set_description(description);
 	QCOMPARE(item.get_description(), description);
 }
@@ -34,8 +34,8 @@ void Test_Item::test_item()
 	QCOMPARE(item.get_description(), "No description set.");
 
 //	// Second constructor
-	string name = "name";
-	string description = "description";
+	QString name = "name";
+	QString description = "description";
 	Item second_item(name, description);
 	QCOMPARE(second_item.get_name(), name);
 	QCOMPARE(second_item.get_description(), description);

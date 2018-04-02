@@ -18,11 +18,11 @@
     </character>
     @
     <character>
-        <name></name>
-        <description></description>
+        <name>Robert</name>
+        <description>He's an odd fellow.</description>
         <lines>
-            <greeting></greeting>
-            <goodbye></goodbye>
+            <greeting>Hiya.</greeting>
+            <goodbye>See ya.</goodbye>
         </lines>
     </character>
 </characters>

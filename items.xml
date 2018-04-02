@@ -1,6 +1,6 @@
 <items>
     <item>
-        <name>Fishing Rod<name>
+        <name>Fishing Rod</name>
         <description>An old fishing rod.</description>
         <attributes>
             <pickupable>false</pickupable>

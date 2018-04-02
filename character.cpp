@@ -1,7 +1,6 @@
 #include "character.h"
 
-Character::Character() :
-	identifiers {"greeting"}
+Character::Character()
 {
 
 }
@@ -11,71 +10,56 @@ Character::~Character()
 
 }
 
-string Character::get_name()
+QString Character::get_name() const
 {
 	return name;
 }
 
-void Character::set_name(string name)
+void Character::set_name(const QString name)
 {
 	this->name = name;
 }
 
-string Character::get_description()
+QString Character::get_description() const
 {
 	return description;
 }
 
-void Character::set_description(string description)
+void Character::set_description(const QString description)
 {
 	this->description = description;
 }
 
-Item* Character::get_items()
+Item* Character::get_items() const
 {
 
 }
 
-bool Character::has_item(Item& item)
+bool Character::has_item(const Item &item) const
 {
 
 }
 
-void Character::remove_item(Item& item)
+void Character::remove_item(const Item &item)
 {
 
 }
 
-/*
- * Potentially unnecessary function
- */
-std::string Character::get_dialogue(string identifier)
+void Character::set_dialogue(const QString identifier, const QString value)
 {
-	for (int i = 0; i < LINES_MAX; i++)
-	{
-		if (identifiers[i].compare(identifier) == 0) // Both strings match
-			return dialogue[i];
-	}
-	return "Identifier " + identifier + " doesn't exist.";
+	dialogue.insert(identifier, value);
 }
 
-void Character::set_dialogue(string identifier, string value)
+QString Character::to_string() const
 {
-	for (int i = 0; i < LINES_MAX; i++)
-		if (identifiers[i].compare(identifier) == 0) // Both strings match
-			dialogue[i] = value;
+
 }
 
 /*
- * TODO: This may need to be removed later, rename index to identifiers
+ *
  */
-string Character::operator[](string identifier)
+QString Character::operator[](const QString identifier) const
 {
-	for (int i = 0; i < LINES_MAX; i++)
-	{
-		if (identifiers[i].compare(identifier) == 0) // Both strings match
-			return dialogue[i];
-	}
-	return "Identifier " + identifier + " doesn't exist.";
+	return dialogue.value(identifier);
 }
 

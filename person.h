@@ -1,28 +1,29 @@
 #ifndef PERSON_H
 #define PERSON_H
 
-#include <string>
+#include <QString>
 #include "item.h"
-
-using std::string;
 
 class Person
 {
 	public:
+		// Constructors/destructors
 		Person();
-		~Person();
-		virtual string get_name() = 0;
-		virtual void set_name(string name) = 0;
-		virtual string get_description() = 0;
-		virtual void set_description(string description) = 0;
-		virtual Item* get_items() = 0;
-		virtual bool has_item(Item& item) = 0;
-		virtual void remove_item(Item& item) = 0;
+		// Functions
+		virtual ~Person() = 0;
+		virtual QString get_name() const = 0;
+		virtual void set_name(const QString name) = 0;
+		virtual QString get_description() const = 0;
+		virtual void set_description(const QString description) = 0;
+		virtual Item* get_items() const = 0;
+		virtual bool has_item(const Item &item) const = 0;
+		virtual void remove_item(const Item &item) = 0;
+		virtual QString to_string() const = 0;
 
 	protected:
-		string name;
-		string description;
-		Item items[];
+		QString name;
+		QString description;
+		Item *items;
 };
 
 #endif // PERSON_H
