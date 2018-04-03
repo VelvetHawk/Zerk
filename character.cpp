@@ -30,17 +30,27 @@ void Character::set_description(const QString description)
 	this->description = description;
 }
 
-Item* Character::get_items() const
+void Character::add_item(Item* item)
 {
 
 }
 
-bool Character::has_item(const Item &item) const
+Item* Character::get_item(const QString name)
 {
 
 }
 
-void Character::remove_item(const Item &item)
+const QMap<QString, Item*>& Character::get_items() const
+{
+
+}
+
+bool Character::has_item(const QString name) const
+{
+
+}
+
+void Character::remove_item(const QString name)
 {
 
 }

@@ -101,39 +101,39 @@ void Location::set_adjacency(const char direction, Location *location)
  */
 Object* Location::get_object(const QString name) const
 {
-
+	return objects[name];
 }
 
 /**
  * @brief
  */
-Object* Location::get_objects() const
+void Location::add_object(Object* object)
 {
-
+	objects.insert(object->get_name(), object);
 }
 
 /**
  * @brief
  */
-void Location::add_object(const Object* object)
+const QMap<QString, Object*>& Location::get_objects() const
 {
-
+	return objects;
 }
 
 /**
  * @brief
  */
-void Location::remove_object(const Object* object)
+void Location::remove_object(const QString name)
 {
-
+	objects.remove(name);
 }
 
 /**
  * @brief
  */
-void Location::add_item(const Item* item)
+void Location::add_item(Item* item)
 {
-
+	items.insert(item->get_name(), item);
 }
 
 /**
@@ -141,14 +141,19 @@ void Location::add_item(const Item* item)
  */
 void Location::remove_item(const QString name)
 {
-
+	items.remove(name);
 }
 
 /**
  * @brief
  */
-Item*Location::get_items() const
+Item* Location::get_item(const QString name) const
 {
+	return items[name];
+}
 
+const QMap<QString, Item*>& Location::get_items() const
+{
+	return items;
 }
 

@@ -25,12 +25,13 @@ class Location
 		Location* get_adjacency(const char direction) const;
 		bool has_adjacency(const char direction) const;
 		Object* get_object(const QString name) const;
-		Object* get_objects() const;
-		void add_object(const Object *object);
-		void remove_object(const Object *object);
-		void add_item(const Item *item);
+		void add_object(Object *object);
+		const QMap<QString, Object *>& get_objects() const;
+		void remove_object(const QString name);
+		void add_item(Item *item);
 		void remove_item(const QString name);
-		Item* get_items() const;
+		Item* get_item(const QString name) const;
+		const QMap<QString, Item *>& get_items() const;
 		QString to_string() const;
 
 	private:
@@ -41,9 +42,9 @@ class Location
 		QMap<char, QString> directions; // Text for each direction
 		QMap<char, Location *> adjacencies; // Neighbouring locations
 		// Things at location
-		Object *objects[];
-		Item *items[]; // Dropped items
-		Character *people[];
+		QMap<QString, Object *> objects;
+		QMap<QString, Item *> items; // Dropped items
+		QMap<QString, Character *> people;
 };
 
 #endif // LOCATION_H

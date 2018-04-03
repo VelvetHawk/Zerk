@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1100</width>
-    <height>561</height>
+    <height>509</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -152,13 +152,13 @@ color: #ffffff;</string>
      <string notr="true">background-color: grey;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="InventoryTitle">
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>330</y>
+      <y>320</y>
       <width>131</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -172,18 +172,48 @@ padding: 1px;
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Inventory&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QTreeWidget" name="ObjectList">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>10</y>
+      <width>256</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Objects &amp; Items</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="Examine">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>240</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Examine</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Take">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>240</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Take</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1100</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

@@ -25,6 +25,7 @@ Scene::~Scene()
  */
 void Scene::start()
 {
+	/* Movement */
 	// Start at fishing spot
 	current_location = &scene_locations["The Fishing Spot"];
 	// The Fishing Spot <--> By the Lake
@@ -51,6 +52,12 @@ void Scene::start()
 	// Barely See the Fishing Spot || Outer Woodland (NE)
 	scene_locations["Outer Woodland (NE)"].set_adjacency('N', &scene_locations["Barely See the Fishing Spot"]);
 	scene_locations["Barely See the Fishing Spot"].set_adjacency('S', &scene_locations["Outer Woodland (NE)"]);
+
+	/* Objects */
+	scene_locations["The Fishing Spot"].add_object(&scene_objects["Stool"]);
+
+	/* Items */
+	scene_locations["The Fishing Spot"].add_item(&scene_items["Fishing Rod"]);
 }
 
 /**
@@ -71,7 +78,16 @@ QString Scene::go(const char direction)
  * @brief
  * @return
  */
-QString Scene::get_current_location()
+QString Scene::location_string()
 {
 	return "\"" + current_location->get_name() + "\"\n" + current_location->get_description() + "\n";
+}
+
+/**
+ * @brief
+ * @return
+ */
+Location* Scene::get_current_location()
+{
+	return current_location;
 }

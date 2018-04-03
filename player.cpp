@@ -30,19 +30,29 @@ void Player::set_description(const QString description)
 	this->description = description;
 }
 
-Item* Player::get_items() const
+void Player::add_item(Item *item)
 {
-
+	inventory.insert(item->get_name(), item);
 }
 
-bool Player::has_item(const Item &item) const
+Item*Player::get_item(const QString name)
 {
-
+	return inventory[name];
 }
 
-void Player::remove_item(const Item &item)
+const QMap<QString, Item*>& Player::get_items() const
 {
+	return inventory;
+}
 
+bool Player::has_item(const QString name) const
+{
+	return inventory.contains(name);
+}
+
+void Player::remove_item(const QString name)
+{
+	inventory.remove(name);
 }
 
 QString Player::to_string() const

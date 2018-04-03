@@ -27,11 +27,14 @@ class MainWindow : public QMainWindow
 		void on_South_clicked();
 		void on_West_clicked();
 		void on_East_clicked();
+		void on_Take_clicked();
+		void on_Examine_clicked();
 
 	private:
 		Ui::MainWindow *ui;
 		Scene *game;
 		void move(QString instruction, char direction);
+		void display_objects();
 };
 
 #endif // MAINWINDOW_H

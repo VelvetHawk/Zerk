@@ -25,7 +25,8 @@ class Scene
 		// Functions
 		void start();
 		QString go(const char direction);
-		QString get_current_location();
+		QString location_string();
+		Location* get_current_location();
 
 	private:
 		Location *current_location;
