@@ -1,6 +1,26 @@
 #include "scene.h"
 #include <iostream>
 
+/**
+ * ########### ACHIEVEMENTS ##########
+ *
+ * Dirty Boy
+ * - Complete the game covered in dirt.
+ *
+ * I'm in space! || I wanna be a spaceman! || Starve the trees!
+ * - Complete the game while holding your breath.
+ * NOTE: If they leave the original area, they do not get the achievement
+ *
+ * Achievement unlocked!
+ * - You unlocked an achievement!
+ *
+ * Next tasks:
+ * - Dialogue
+ * - Menu system
+ */
+
+
+
 Scene::Scene(QMap<QString, Object> &objects, QMap<QString, Item> &items, QMap<QString, Character> &characters,
 			 Player *player, QMap<QString, Location> &locations) :
 	scene_objects(objects), scene_items(items), scene_characters(characters), player(player),
@@ -15,7 +35,6 @@ Scene::Scene(QMap<QString, Object> &objects, QMap<QString, Item> &items, QMap<QS
 Scene::~Scene()
 {
 	delete player;
-
 	std::cout << "Deleting scene" << std::endl;
 }
 
@@ -57,7 +76,9 @@ void Scene::start()
 	scene_locations["The Fishing Spot"].add_object(&scene_objects["Stool"]);
 
 	/* Items */
+	// Fishing Spot
 	scene_locations["The Fishing Spot"].add_item(&scene_items["Fishing Rod"]);
+	scene_locations["The Fishing Spot"].add_item(&scene_items["Grandad's Fishing Rod"]);
 }
 
 /**

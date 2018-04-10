@@ -72,4 +72,3 @@ QString Character::operator[](const QString identifier) const
 {
 	return dialogue.value(identifier);
 }
-

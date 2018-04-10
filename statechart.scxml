@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" name="statechart" qt:editorversion="4.5.0" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" initial="Menu">
+    <qt:editorinfo initialGeometry="554.12;108.97;-20;-20;117;91"/>
+    <final id="End">
+        <qt:editorinfo scenegeometry="554.12;431.79;534.12;411.79;117;90" geometry="554.12;431.79;-20;-20;117;90"/>
+    </final>
+    <state id="Game">
+        <qt:editorinfo scenegeometry="854.77;300.20;765.77;250.20;149;100" geometry="854.77;300.20;-89;-50;149;100"/>
+        <transition type="external" event="to_menu" target="Menu">
+            <qt:editorinfo startTargetFactors="8.82;25.54" movePoint="-4.11;-17.48"/>
+        </transition>
+    </state>
+    <state id="Options">
+        <qt:editorinfo scenegeometry="379.35;300.20;319.35;250.20;120;100" geometry="379.35;300.20;-60;-50;120;100"/>
+        <transition type="external" event="to_options" target="Menu">
+            <qt:editorinfo endTargetFactors="9.60;65.95" movePoint="-5.14;34.95"/>
+        </transition>
+    </state>
+    <state id="Menu">
+        <qt:editorinfo scenegeometry="592.62;300.20;532.62;250.20;120;100" geometry="592.62;300.20;-60;-50;120;100"/>
+        <transition type="external" event="to_options" target="Options">
+            <qt:editorinfo endTargetFactors="92.65;33.99" startTargetFactors="7.35;28.42" movePoint="-1.03;-43.18"/>
+        </transition>
+        <transition type="external" event="to_game" target="Game">
+            <qt:editorinfo endTargetFactors="8.48;77.52" startTargetFactors="74.70;87.93" movePoint="0;31.87"/>
+        </transition>
+        <transition type="external" event="to_end" target="End">
+            <qt:editorinfo endTargetFactors="52.26;22.01" movePoint="-40.09;13.36"/>
+        </transition>
+    </state>
+</scxml>

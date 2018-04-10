@@ -7,7 +7,7 @@ Player::Player()
 
 Player::~Player()
 {
-
+	std::cout << "Player deleted" << std::endl;
 }
 
 QString Player::get_name() const

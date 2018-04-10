@@ -4,6 +4,8 @@
 #include "item.h"
 #include "person.h"
 
+#include <iostream>
+
 class Player : public Person
 {
 	public:

@@ -1,9 +1,9 @@
 #include "parser.h"
 
 // Parser constant initialisation
-const string Parser::NAME_TEMPLATE = "<name>([A-Za-z0-9_.,'() \n]*)</name>[^<]*";
-const string Parser::DESCRIPTION_TEMPLATE = "<description>([A-Za-z0-9_.,'() \n]*)</description>[^<]*";
-const string Parser::REGEX_TEMPLATE = "([A-Za-z0-9_.,'() \n]*)";
+const string Parser::REGEX_TEMPLATE = "([A-Za-z0-9_.,'()? \n]*)";
+const string Parser::NAME_TEMPLATE = "<name>" + Parser::REGEX_TEMPLATE + "</name>[^<]*";
+const string Parser::DESCRIPTION_TEMPLATE = "<description>" + Parser::REGEX_TEMPLATE + "</description>[^<]*";
 
 /*
  *

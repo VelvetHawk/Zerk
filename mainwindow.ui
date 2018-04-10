@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>509</height>
+    <width>1136</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,30 +24,61 @@
 	border-image: url(&quot;:/images/animus&quot;) 0 0 0 0 stretch stretch;
 }
 
-#North, #East, #South, #West {
-	
+.QPushButton {
 	/* background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0.373134 rgba(0, 223, 255, 255), stop:1 rgba(255, 255, 255, 255)); */
-	background-color: black;
+background-color: black;
 	color: white;
 	border: 10px solid qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 223, 255, 255), stop:0.497326 rgba(200, 200, 200, 147), stop:1 rgba(0, 169, 255, 147));
 	font-weight: bold;
 	border-radius: 25px;
+	min-height: 10px;
 	height: 30px;
 }
 
-#North:hover, #East:hover, #South:hover, #West:hover {
+.QPushButton:hover {
 	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0.373134 rgba(0, 223, 255, 255), stop:1 rgba(255, 255, 255, 255));
 	color: black;
+}
+
+#LocationDetails {
+	background-color: white;
+}
+
+#ObjectList, #Inventory {
+	background-color: rgba(0, 0, 0, 150);
+	color: white;
+	font-weight: bold;
+}
+
+#LocationDetails {
+	background-color: rgba(0, 0, 0, 150);
+}
+
+#LocationTitle, #LocationDescription {
+	color: white;
+	font-weight: bold;
+}
+
+#InventoryTitle {
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	padding: 1px;
+}
+
+#contentList {
+	background: #000000;
+	color: #ffffff;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>330</y>
+      <x>820</x>
+      <y>290</y>
       <width>295</width>
-      <height>166</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="Directions">
@@ -102,15 +133,14 @@
    <widget class="QScrollArea" name="console">
     <property name="geometry">
      <rect>
-      <x>279</x>
-      <y>6</y>
-      <width>501</width>
+      <x>260</x>
+      <y>10</y>
+      <width>531</width>
       <height>311</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: #000000;
-color: #ffffff;</string>
+     <string notr="true"/>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
@@ -120,7 +150,7 @@ color: #ffffff;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>499</width>
+       <width>529</width>
        <height>309</height>
       </rect>
      </property>
@@ -129,88 +159,220 @@ color: #ffffff;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>501</width>
+        <width>531</width>
         <height>311</height>
        </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
       </property>
+      <property name="selectionRectVisible">
+       <bool>false</bool>
+      </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QTableWidget" name="Inventory">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>360</y>
-      <width>501</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: grey;</string>
-    </property>
    </widget>
    <widget class="QLabel" name="InventoryTitle">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>320</y>
+      <x>260</x>
+      <y>340</y>
       <width>131</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font-weight: bold;
-padding: 1px;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Inventory&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTreeWidget" name="ObjectList">
+   <widget class="QTableWidget" name="Inventory">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>10</y>
-      <width>256</width>
-      <height>221</height>
+      <x>260</x>
+      <y>390</y>
+      <width>531</width>
+      <height>131</height>
      </rect>
     </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <row>
+     <property name="text">
+      <string>rows_1</string>
+     </property>
+    </row>
     <column>
      <property name="text">
-      <string>Objects &amp; Items</string>
+      <string>items_1</string>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>items_2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>items_3</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>items_4</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
-   <widget class="QPushButton" name="Examine">
+   <widget class="QGroupBox" name="LocationDetails">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>241</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="LocationTitle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="LocationDescription">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>45</y>
+       <width>221</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignJustify|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
       <x>810</x>
-      <y>240</y>
-      <width>93</width>
-      <height>28</height>
+      <y>10</y>
+      <width>311</width>
+      <height>261</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Examine</string>
-    </property>
+    <layout class="QGridLayout" name="ObjectLayout">
+     <item row="1" column="0">
+      <layout class="QGridLayout" name="ObjectButtonLayout">
+       <item row="0" column="2">
+        <widget class="QPushButton" name="Take">
+         <property name="text">
+          <string>Take</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="Examine">
+         <property name="text">
+          <string>Examine</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QTreeWidget" name="ObjectList">
+       <column>
+        <property name="text">
+         <string>Objects &amp; Items</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="Take">
+   <widget class="QPushButton" name="Drop">
     <property name="geometry">
      <rect>
-      <x>930</x>
-      <y>240</y>
-      <width>93</width>
-      <height>28</height>
+      <x>680</x>
+      <y>330</y>
+      <width>111</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
-     <string>Take</string>
+     <string>Drop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>330</y>
+      <width>111</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Talk</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Quit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>510</y>
+      <width>93</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
     </property>
    </widget>
   </widget>

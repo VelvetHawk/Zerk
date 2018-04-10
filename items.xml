@@ -1,7 +1,37 @@
 <items>
     <item>
         <name>Fishing Rod</name>
-        <description>An old fishing rod.</description>
+        <description>This is what you were using to fish.</description>
+        <attributes>
+            <pickupable>false</pickupable>
+            <hidden>false</hidden>
+        </attributes>
+    </item>
+    @
+    <item>
+        <name>Grandad's Fishing Rod</name>
+        <description>An old fishing rod, used by grandad.</description>
+        <attributes>
+            <pickupable>false</pickupable>
+            <hidden>false</hidden>
+        </attributes>
+    </item>
+    @
+    <item>
+        <name>Deep Breath</name>
+        <description>Your breath.</description>
+        <attributes>
+            <pickupable>false</pickupable>
+            <hidden>false</hidden>
+        </attributes>
+    </item>
+    @
+    <item>
+        <name>Layer of Dirt</name>
+        <description>
+            Layer of dirt that you picked up from the ground.
+            Maybe you should put it back?
+        </description>
         <attributes>
             <pickupable>false</pickupable>
             <hidden>false</hidden>

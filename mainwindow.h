@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include <QString>
-#include <scene.h>
+
+#include "scene.h"
 
 namespace Ui
 {
@@ -29,12 +30,18 @@ class MainWindow : public QMainWindow
 		void on_East_clicked();
 		void on_Take_clicked();
 		void on_Examine_clicked();
+		void on_Drop_clicked();
+		void on_Quit_clicked();
 
 	private:
+		// variables
 		Ui::MainWindow *ui;
 		Scene *game;
+		// Functions
 		void move(QString instruction, char direction);
 		void display_objects();
+		void update_location_details();
+		void update_inventory();
 };
 
 #endif // MAINWINDOW_H

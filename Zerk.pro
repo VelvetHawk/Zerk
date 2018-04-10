@@ -36,7 +36,8 @@ SOURCES += \
     player.cpp \
     scene.cpp \
     character.cpp \
-    parser.cpp
+    parser.cpp \
+    menu.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -47,10 +48,12 @@ HEADERS += \
     player.h \
     scene.h \
     character.h \
-    parser.h
+    parser.h \
+    menu.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    menu.ui
 
 OTHER_FILES +=
 
@@ -97,4 +100,6 @@ else
 
 RESOURCES += \
     resources.qrc
+
+STATECHARTS +=
 
