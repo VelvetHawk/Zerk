@@ -5,13 +5,12 @@
 
 #include <iostream>
 
-MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
+	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
 	setFixedSize(geometry().width(), geometry().height()); // Prevent resize
 	setWindowTitle("Zerk: An Original Tale");
-	setAttribute(Qt::WA_DeleteOnClose, true);
 
 	connect(ui->Quit, SIGNAL(clicked()), parentWidget(), SLOT(show()));
 }

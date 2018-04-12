@@ -1,4 +1,5 @@
 #include "location.h"
+#include <QDebug>
 
 /**
  * @brief
@@ -152,6 +153,30 @@ Item* Location::get_item(const QString name) const
 	return items[name];
 }
 
+/**
+ * @brief
+ */
+void Location::remove_character(const QString name)
+{
+	people.remove(name);
+}
+
+/**
+ * @brief
+ */
+void Location::add_character(Character *character)
+{
+	people.insert(character->get_name(), character);
+}
+
+const QMap<QString, Character*>& Location::get_characters() const
+{
+	return people;
+}
+
+/**
+ * @brief
+ */
 const QMap<QString, Item*>& Location::get_items() const
 {
 	return items;

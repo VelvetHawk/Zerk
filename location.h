@@ -31,6 +31,9 @@ class Location
 		void add_item(Item *item);
 		void remove_item(const QString name);
 		Item* get_item(const QString name) const;
+		void remove_character(const QString name);
+		void add_character(Character *character);
+		const QMap<QString, Character *>& get_characters() const;
 		const QMap<QString, Item *>& get_items() const;
 		QString to_string() const;
 

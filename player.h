@@ -4,8 +4,6 @@
 #include "item.h"
 #include "person.h"
 
-#include <iostream>
-
 class Player : public Person
 {
 	public:
@@ -25,7 +23,7 @@ class Player : public Person
 		QString to_string() const override;
 
 	private:
-		QMap<QString, Item *> inventory;
+		QMap<QString, Item *> *inventory;
 };
 
 #endif // PLAYER_H

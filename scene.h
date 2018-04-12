@@ -14,13 +14,13 @@ class Scene
 {
 	public:
 		// Variables
-		QMap<QString, Object> scene_objects;
-		QMap<QString, Item> scene_items;
-		QMap<QString, Character> scene_characters;
+		QMap<QString, Object> *scene_objects;
+		QMap<QString, Item> *scene_items;
+		QMap<QString, Character> *scene_characters;
 		Player *player;
-		QMap<QString, Location> scene_locations;
+		QMap<QString, Location> *scene_locations;
 		// Constructors/destructors
-		Scene(QMap<QString, Object> &, QMap<QString, Item> &, QMap<QString, Character> &, Player *, QMap<QString, Location> &);
+		Scene();
 		~Scene();
 		// Functions
 		void start();

@@ -4,6 +4,29 @@
         <description>He's old.</description>
         <lines>
             <greeting>Hi.</greeting>
+            <firstOption>
+                Any idea where those car keys might be?
+            </firstOption>
+            <secondOption>
+                Have you made much progress with the cleanup?
+            </secondOption>
+            <thirdOption>
+                The sun is looking quite nice today. Reminds me
+                of when I was young.
+            </thirdOption>
+            <firstResponse>
+                I remember getting a lot of the bait from a little grove.
+                Maybe have a look around in that area?
+            </firstResponse>
+            <secondResponse>
+                I've tidied most of it up, but need those keys to open up
+                the boot. Let me know when you find them.
+            </secondResponse>
+            <thirdResponse>
+                Oh I remember how much you loved the sunsets my boy. You'd
+                sit around with us watching it every summer. Memories like
+                that will never fade.
+            </thirdResponse>
             <goodbye>Take care.</goodbye>
         </lines>
     </character>
@@ -13,6 +36,12 @@
         <description>A mysterious stranger.</description>
         <lines>
             <greeting>Hello.</greeting>
+            <firstOption>FIRST OPTION</firstOption>
+            <secondOption>SECOND OPTION</secondOption>
+            <thirdOption>THIRD OPTION</thirdOption>
+            <firstResponse>FIRST RESPONSE </firstResponse>
+            <secondResponse>SECOND RESPONSE</secondResponse>
+            <thirdResponse>THIRD RESPONSE</thirdResponse>
             <goodbye>Farewell.</goodbye>
         </lines>
     </character>
@@ -22,6 +51,12 @@
         <description>He's an odd fellow.</description>
         <lines>
             <greeting>Hiya.</greeting>
+            <firstOption>FIRST OPTION</firstOption>
+            <secondOption>SECOND OPTION</secondOption>
+            <thirdOption>THIRD OPTION</thirdOption>
+            <firstResponse>FIRST RESPONSE </firstResponse>
+            <secondResponse>SECOND RESPONSE</secondResponse>
+            <thirdResponse>THIRD RESPONSE</thirdResponse>
             <goodbye>See ya.</goodbye>
         </lines>
     </character>

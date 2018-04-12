@@ -1,13 +1,16 @@
 #include "player.h"
+#include <QDebug>
 
 Player::Player()
+	: inventory(new QMap<QString, Item *>)
 {
 
 }
 
 Player::~Player()
 {
-	std::cout << "Player deleted" << std::endl;
+	delete inventory;
+	qDebug() << "Player deleted";
 }
 
 QString Player::get_name() const
@@ -32,27 +35,27 @@ void Player::set_description(const QString description)
 
 void Player::add_item(Item *item)
 {
-	inventory.insert(item->get_name(), item);
+	inventory->insert(item->get_name(), item);
 }
 
 Item*Player::get_item(const QString name)
 {
-	return inventory[name];
+	return (*inventory)[name];
 }
 
 const QMap<QString, Item*>& Player::get_items() const
 {
-	return inventory;
+	return *inventory;
 }
 
 bool Player::has_item(const QString name) const
 {
-	return inventory.contains(name);
+	return inventory->contains(name);
 }
 
 void Player::remove_item(const QString name)
 {
-	inventory.remove(name);
+	inventory->remove(name);
 }
 
 QString Player::to_string() const

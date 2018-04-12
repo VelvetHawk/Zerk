@@ -1,4 +1,5 @@
 #include "parser.h"
+#include <QDebug>
 
 // Parser constant initialisation
 const string Parser::REGEX_TEMPLATE = "([A-Za-z0-9_.,'()? \n]*)";
@@ -16,6 +17,12 @@ void Parser::load(std::ifstream &file, QMap<QString, Character> &characters)
 		+ DESCRIPTION_TEMPLATE
 		+ "<lines>[^<]*"
 			"<greeting>" + REGEX_TEMPLATE + "</greeting>[^<]*" \
+			"<firstOption>" + REGEX_TEMPLATE + "</firstOption>[^<]*" \
+			"<secondOption>" + REGEX_TEMPLATE + "</secondOption>[^<]*" \
+			"<thirdOption>" + REGEX_TEMPLATE + "</thirdOption>[^<]*" \
+			"<firstResponse>" + REGEX_TEMPLATE + "</firstResponse>[^<]*" \
+			"<secondResponse>" + REGEX_TEMPLATE + "</secondResponse>[^<]*" \
+			"<thirdResponse>" + REGEX_TEMPLATE + "</thirdResponse>[^<]*" \
 			"<goodbye>" + REGEX_TEMPLATE +"</goodbye>[^<]*" \
 		"</lines>"
 	);
@@ -35,7 +42,13 @@ void Parser::load(std::ifstream &file, QMap<QString, Character> &characters)
 		characters[name].set_name(name);
 		characters[name].set_description(format(matches[2]));
 		characters[name].set_dialogue("greeting", format(matches[3]));
-		characters[name].set_dialogue("goodbye", format(matches[4]));
+		characters[name].set_dialogue("firstOption", format(matches[4]));
+		characters[name].set_dialogue("secondOption", format(matches[5]));
+		characters[name].set_dialogue("thirdOption", format(matches[6]));
+		characters[name].set_dialogue("firstResponse", format(matches[7]));
+		characters[name].set_dialogue("secondResponse", format(matches[8]));
+		characters[name].set_dialogue("thirdResponse", format(matches[9]));
+		characters[name].set_dialogue("goodbye", format(matches[10]));
 	}
 }
 

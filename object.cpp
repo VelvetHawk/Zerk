@@ -1,12 +1,18 @@
 #include "object.h"
+#include <QDebug>
 
 /**
  * @brief Base constructor
  */
 Object::Object()
-	: items(new Item[SIZE])
+	: items(new QMap<QString, Item *>)
 {
 
+}
+
+Object::~Object()
+{
+	items->clear(); // No need to delete, as scene_items will delete them
 }
 
 /**
@@ -45,7 +51,7 @@ void Object::set_description(const QString description)
  * @brief Returns a pointer to an Item array will all of the items contained in the object
  * @return Item pointer to array
  */
-Item* Object::get_items() const
+QMap<QString, Item *>* Object::get_items() const
 {
 	return items;
 }
@@ -54,13 +60,9 @@ Item* Object::get_items() const
  * @brief Adds an Item object to the items array
  * @param item - Pointer to the Item object you wish to add
  */
-void Object::add_item(const Item *item)
+void Object::add_item(Item *item)
 {
-	if (item_index < SIZE) // Check bounds
-	{
-		items[item_index] = *item;
-		item_index++;
-	}
+	items->insert(item->get_name(), &(*item));
 }
 
 /**
@@ -69,11 +71,7 @@ void Object::add_item(const Item *item)
  */
 void Object::remove_item(const Item *item)
 {
-	for (int i = 0; i < item_index; i++)
-	{
-		//if (i)
-		// Compare memory addresses
-	}
+
 }
 
 /**

@@ -1,4 +1,5 @@
 #include "person.h"
+#include <QDebug>
 
 /**
  * @brief

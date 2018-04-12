@@ -1,4 +1,5 @@
 #include "item.h"
+#include <QDebug>
 
 /**
  * @brief Base constructor

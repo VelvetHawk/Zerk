@@ -19,7 +19,7 @@
     @
     <item>
         <name>Deep Breath</name>
-        <description>Your breath.</description>
+        <description>A gift of the air from your lungs.</description>
         <attributes>
             <pickupable>false</pickupable>
             <hidden>false</hidden>
