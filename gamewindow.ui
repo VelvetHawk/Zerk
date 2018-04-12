@@ -396,6 +396,19 @@ background-color: black;
      <string>Examine</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Map">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>141</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Map</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#title {
+	border-image: url(&quot;:/images/zerk&quot;) 0 0 0 0 stretch stretch;
+}</string>
+  </property>
   <widget class="QFrame" name="centralframe">
    <property name="geometry">
     <rect>
@@ -40,13 +45,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Options">
-       <property name="text">
-        <string>Options</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="Quit">
        <property name="text">
         <string>Quit</string>
@@ -54,6 +52,19 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>1091</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
  </widget>

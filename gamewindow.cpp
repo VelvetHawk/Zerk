@@ -4,6 +4,8 @@
 #include <QStackedWidget>
 #include <QDebug>
 #include <talkdialog.h>
+#include <mapdialog.h>
+#include <endgamedialog.h>
 
 GameWindow::GameWindow(QStackedWidget *parent) : QWidget(parent),
 	ui(new Ui::GameWindow), game(nullptr), window(parent)
@@ -161,14 +163,31 @@ void GameWindow::display_objects()
 	clean_objects();
 
 	QTreeWidgetItem *temp;
+	QTreeWidgetItem *tempChild;
 	// Objects
 	const QMap<QString, Object *> objects = game->get_current_location()->get_objects();
 	for (QMap<QString, Object *>::const_iterator object = objects.begin(); object != objects.end(); object++)
 	{
 		temp = new QTreeWidgetItem();
 		temp->setText(0, object.key());
+		// Add items that aren't hidden
+		for (auto item = object.value()->get_items()->begin(); item != object.value()->get_items()->end(); item++)
+			if (!item.value()->is_hidden())
+			{
+				tempChild = new QTreeWidgetItem();
+				tempChild->setText(0, item.value()->get_name());
+				temp->addChild(tempChild);
+				qDebug() << item.value()->get_name() << " has been added to " << object.key();
+			}
+			else
+				qDebug() << item.value()->get_name() << " is hidden! ("
+					<< item.value()->is_hidden() << ")";
+		// Add item to list
 		ui->ObjectList->addTopLevelItem(temp);
 	}
+	// Expand items
+	ui->ObjectList->expandAll();
+
 	// Items
 	const QMap<QString, Item *> items = game->get_current_location()->get_items();
 	for (QMap<QString, Item *>::const_iterator item = items.begin(); item != items.end(); item++)
@@ -278,12 +297,36 @@ void GameWindow::on_Examine_clicked()
 	if (!ui->ObjectList->selectedItems().isEmpty()) // Check if player has selected anything
 	{
 		name = ui->ObjectList->selectedItems().first()->text(0);
+		qDebug() << name << " selected to examine";
 		ui->contentList->addItem("> Examine \"" + name + "\"");
 		// Check if object or item
 		if (game->get_current_location()->get_objects().contains(name))
+		{
+			qDebug() << "Adding object description";
 			ui->contentList->addItem(game->get_current_location()->get_object(name)->get_description() + "\n");
-		else
-			ui->contentList->addItem(game->get_current_location()->get_item(name)->get_description() + "\n");
+			// Unhide items if object not examined
+			if (!game->get_current_location()->get_object(name)->is_examined())
+			{
+				qDebug() << "Setting examined to true and unhiding objects";
+				game->get_current_location()->get_object(name)->set_examined(true);
+				auto items = game->get_current_location()->get_object(name)->get_items();
+				for (auto item = items->begin(); item != items->end(); item++)
+				{
+					qDebug() << "Went into loop~~~~~~~~~~~~~~~~";
+					if (item.value()->is_hidden())
+					{
+						item.value()->set_hidden(false);
+						qDebug() << "Unhiding " << item.value()->get_name();
+					}
+					else
+						qDebug() << item.value()->get_name() << " is not hidden#########";
+				}
+				// Refresh object list
+				display_objects();
+			}
+		}
+		else // Using scene_items because two different item sets between object and location
+			ui->contentList->addItem(game->scene_items->value(name).get_description() + "\n");
 	}
 	else // Cannot catch as exception, because assertion fails if empty
 	{
@@ -344,9 +387,20 @@ void GameWindow::on_Quit_clicked()
 
 void GameWindow::on_Talk_clicked()
 {
-	TalkDialog *dialogue = new TalkDialog(game->get_current_location()->get_characters());
-	dialogue->setFixedSize(dialogue->geometry().width(), dialogue->geometry().height()); // Prevent resize
-	dialogue->show();
+	// Check if player has keys
+	if (game->player->has_item("Car Keys") && game->get_current_location()->get_name() == "The Fishing Spot")
+	{
+		qDebug() << "YOU WIN!";
+		on_Quit_clicked();
+		EndGameDialog *ending = new EndGameDialog();
+		ending->show();
+	}
+	else
+	{
+		TalkDialog *dialogue = new TalkDialog(game->get_current_location()->get_characters());
+		dialogue->setFixedSize(dialogue->geometry().width(), dialogue->geometry().height()); // Prevent resize
+		dialogue->show();
+	}
 }
 
 void GameWindow::on_InventoryExamine_clicked()
@@ -364,4 +418,11 @@ void GameWindow::on_InventoryExamine_clicked()
 			" There's a time and place for everything, but not now.\n");
 	ui->contentList->addItem("What would you like to do?\n");
 	ui->contentList->scrollToBottom();
+}
+
+void GameWindow::on_Map_clicked()
+{
+	MapDialog *dialogue = new MapDialog();
+	dialogue->setFixedSize(dialogue->geometry().width(), dialogue->geometry().height()); // Prevent resize
+	dialogue->show();
 }

@@ -34,7 +34,9 @@ SOURCES += \
     parser.cpp \
     menu.cpp \
     gamewindow.cpp \
-    talkdialog.cpp
+    talkdialog.cpp \
+    mapdialog.cpp \
+    endgamedialog.cpp
 
 HEADERS += \
     location.h \
@@ -47,12 +49,16 @@ HEADERS += \
     parser.h \
     menu.h \
     gamewindow.h \
-    talkdialog.h
+    talkdialog.h \
+    mapdialog.h \
+    endgamedialog.h
 
 FORMS += \
     menu.ui \
     gamewindow.ui \
-    talkdialog.ui
+    talkdialog.ui \
+    mapdialog.ui \
+    endgamedialog.ui
 
 OTHER_FILES +=
 

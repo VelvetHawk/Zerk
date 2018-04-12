@@ -52,6 +52,7 @@ class GameWindow : public QWidget
 		void on_Quit_clicked();
 		void on_Talk_clicked();
 		void on_InventoryExamine_clicked();
+		void on_Map_clicked();
 };
 
 #endif // GAMEWINDOW_H

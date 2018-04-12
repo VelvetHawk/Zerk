@@ -5,7 +5,7 @@
  * @brief Base constructor
  */
 Object::Object()
-	: items(new QMap<QString, Item *>)
+	: items(new QMap<QString, Item *>), examined(false)
 {
 
 }
@@ -72,6 +72,16 @@ void Object::add_item(Item *item)
 void Object::remove_item(const Item *item)
 {
 
+}
+
+bool Object::is_examined() const
+{
+	return examined;
+}
+
+bool Object::set_examined(bool examined)
+{
+	this->examined = examined;
 }
 
 /**

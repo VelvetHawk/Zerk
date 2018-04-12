@@ -8,11 +8,11 @@ TalkDialog::TalkDialog(const QMap<QString, Character *> &characters, QWidget *pa
 {
 	ui->setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose);
+	setWindowTitle("Talk");
+	setModal(true);
 	// Set up characters
 	for (auto i = people_at_location.begin(); i != people_at_location.end(); i++)
 		ui->characterSelector->addItem(i.value()->get_name());
-	// Dialog options
-
 }
 
 TalkDialog::~TalkDialog()

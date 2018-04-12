@@ -86,7 +86,10 @@ void Scene::start()
 	/* Objects */
 	(*scene_locations)["The Fishing Spot"].add_object(&(*scene_objects)["Stool"]);
 
-	/* Items */
+	/* Items in Objects */
+	(*scene_objects)["Stool"].add_item(&(*scene_items)["Car Keys"]);
+
+	/* Items at locations */
 	// Fishing Spot
 	(*scene_locations)["The Fishing Spot"].add_item(&(*scene_items)["Fishing Rod"]);
 	(*scene_locations)["The Fishing Spot"].add_item(&(*scene_items)["Grandad's Fishing Rod"]);

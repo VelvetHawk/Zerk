@@ -37,4 +37,15 @@
             <hidden>false</hidden>
         </attributes>
     </item>
+    @
+    <item>
+        <name>Car Keys</name>
+        <description>
+            The keys to your way home.
+        </description>
+        <attributes>
+            <pickupable>false</pickupable>
+            <hidden>true</hidden>
+        </attributes>
+    </item>
 </items>

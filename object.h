@@ -19,6 +19,8 @@ class Object
 		QMap<QString, Item *>* get_items() const;
 		void add_item(Item *item);
 		void remove_item(const Item *item);
+		bool is_examined() const;
+		bool set_examined(bool examined);
 		QString to_string() const;
 		Object* operator+(const Item *item);
 
@@ -27,6 +29,7 @@ class Object
 		QString description;
 		bool has_inventory();
 		QMap<QString, Item *> *items;
+		bool examined;
 };
 
 #endif // OBJECT_H

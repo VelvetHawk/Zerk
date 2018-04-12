@@ -3,4 +3,12 @@
         <name>Stool</name>
         <description>An old stool.</description>
     </object>
+    @
+    <object>
+        <name>Burrow</name>
+        <description>
+            A den, which some small creatures seem
+            to have made their home in.
+        </description>
+    </object>
 </objects>

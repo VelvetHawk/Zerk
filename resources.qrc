@@ -2,5 +2,8 @@
     <qresource prefix="/images">
         <file alias="animus">images/animus.jpg</file>
         <file alias="parchment">images/parchment.jpg</file>
+        <file alias="galaxy">images/galaxy.jpg</file>
+        <file alias="zerk">images/zerk_title.png</file>
+        <file alias="gameover">images/game_over.gif</file>
     </qresource>
 </RCC>
