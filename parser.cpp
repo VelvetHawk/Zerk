@@ -2,7 +2,7 @@
 #include <QDebug>
 
 // Parser constant initialisation
-const string Parser::REGEX_TEMPLATE = "([A-Za-z0-9_.,'()? \n]*)";
+const string Parser::REGEX_TEMPLATE = "([A-Za-z0-9_.,':()-?! \n\s]*)";
 const string Parser::NAME_TEMPLATE = "<name>" + Parser::REGEX_TEMPLATE + "</name>[^<]*";
 const string Parser::DESCRIPTION_TEMPLATE = "<description>" + Parser::REGEX_TEMPLATE + "</description>[^<]*";
 

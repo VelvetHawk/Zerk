@@ -8,7 +8,14 @@
         <name>Burrow</name>
         <description>
             A den, which some small creatures seem
-            to have made their home in.
+            to have made their home in. Oh, what's this!
+        </description>
+    </object>
+    @
+    <object>
+        <name>Tracks</name>
+        <description>
+            Seems there are animal tracks leading west...
         </description>
     </object>
 </objects>

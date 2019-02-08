@@ -260,7 +260,7 @@ background-color: black;
       <x>10</x>
       <y>10</y>
       <width>241</width>
-      <height>191</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="title">
@@ -291,7 +291,7 @@ background-color: black;
        <x>10</x>
        <y>45</y>
        <width>221</width>
-       <height>131</height>
+       <height>251</height>
       </rect>
      </property>
      <property name="text">
@@ -400,7 +400,7 @@ background-color: black;
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>230</y>
+      <y>340</y>
       <width>141</width>
       <height>50</height>
      </rect>

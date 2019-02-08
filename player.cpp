@@ -10,7 +10,6 @@ Player::Player()
 Player::~Player()
 {
 	delete inventory;
-	qDebug() << "Player deleted";
 }
 
 QString Player::get_name() const
@@ -60,6 +59,6 @@ void Player::remove_item(const QString name)
 
 QString Player::to_string() const
 {
-
+	return name + ". " + description;
 }
 

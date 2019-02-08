@@ -11,20 +11,12 @@ GameWindow::GameWindow(QStackedWidget *parent) : QWidget(parent),
 	ui(new Ui::GameWindow), game(nullptr), window(parent)
 {
 	ui->setupUi(this);
-
-	// connect(ui->Quit, SIGNAL(clicked()), parentWidget(), SLOT(show()));
-	qDebug() << "GameWindow constructor called";
-	qDebug() << ((game == nullptr)? "Game is a nullptr" : "Game is not nullptr");
 }
 
 GameWindow::~GameWindow()
 {
 	delete ui;
-	qDebug() << "UI deleted";
 	delete game;
-	qDebug() << "Scene deleted";
-
-	qDebug() << "GameWindow deleted";
 }
 
 
@@ -67,50 +59,34 @@ Scene* GameWindow::get_scene()
 
 void GameWindow::clean_ui()
 {
-	/* Add temp variable to remove
-	 * and use delete on
-	 */
-
-
-	qDebug() << "Cleaning UI";
 	clean_objects();
 	clean_inventory();
 	// Console window
 	for (int i = ui->contentList->count(); i >= 0; i--)
 		delete ui->contentList->item(i);
 	ui->contentList->clear();
-	qDebug() << "UI cleaned";
 }
 
 void GameWindow::clean_objects()
 {
-	qDebug() << "Cleaning Objects";
 	for (int i = ui->ObjectList->topLevelItemCount(); i >= 0; i--)
 		delete ui->ObjectList->topLevelItem(i);
 	ui->ObjectList->clear();
-	qDebug() << "Objects cleaned";
 }
 
 void GameWindow::clean_inventory()
 {
-	qDebug() << "Cleaning inventory";
 	for (int i =  ui->Inventory->rowCount(); i >= 0; i--)
 		for (int j = ui->Inventory->columnCount(); j > 0; j--)
 			delete ui->Inventory->item(i, j);
 	ui->Inventory->clear();
-	qDebug() << "Inventory cleaned";
 }
 
 void GameWindow::reset_scene()
 {
-	qDebug() << "Resetting scene";
 	if (game != nullptr)
-	{
-		qDebug() << "Calling delete";
 		delete game; // Remove old scene
-	}
 	game = new Scene(); // Reload scene from file
-	qDebug() << "Finished resetting scene";
 }
 
 void GameWindow::on_North_clicked()
@@ -177,11 +153,7 @@ void GameWindow::display_objects()
 				tempChild = new QTreeWidgetItem();
 				tempChild->setText(0, item.value()->get_name());
 				temp->addChild(tempChild);
-				qDebug() << item.value()->get_name() << " has been added to " << object.key();
 			}
-			else
-				qDebug() << item.value()->get_name() << " is hidden! ("
-					<< item.value()->is_hidden() << ")";
 		// Add item to list
 		ui->ObjectList->addTopLevelItem(temp);
 	}
@@ -297,30 +269,19 @@ void GameWindow::on_Examine_clicked()
 	if (!ui->ObjectList->selectedItems().isEmpty()) // Check if player has selected anything
 	{
 		name = ui->ObjectList->selectedItems().first()->text(0);
-		qDebug() << name << " selected to examine";
 		ui->contentList->addItem("> Examine \"" + name + "\"");
 		// Check if object or item
 		if (game->get_current_location()->get_objects().contains(name))
 		{
-			qDebug() << "Adding object description";
 			ui->contentList->addItem(game->get_current_location()->get_object(name)->get_description() + "\n");
 			// Unhide items if object not examined
 			if (!game->get_current_location()->get_object(name)->is_examined())
 			{
-				qDebug() << "Setting examined to true and unhiding objects";
 				game->get_current_location()->get_object(name)->set_examined(true);
 				auto items = game->get_current_location()->get_object(name)->get_items();
 				for (auto item = items->begin(); item != items->end(); item++)
-				{
-					qDebug() << "Went into loop~~~~~~~~~~~~~~~~";
 					if (item.value()->is_hidden())
-					{
 						item.value()->set_hidden(false);
-						qDebug() << "Unhiding " << item.value()->get_name();
-					}
-					else
-						qDebug() << item.value()->get_name() << " is not hidden#########";
-				}
 				// Refresh object list
 				display_objects();
 			}
@@ -379,7 +340,6 @@ void GameWindow::on_Drop_clicked()
 
 void GameWindow::on_Quit_clicked()
 {
-	qDebug() << "Quit Clicked";
 	// Cleanup
 	clean_ui();
 	window->setCurrentIndex(0);
@@ -387,19 +347,29 @@ void GameWindow::on_Quit_clicked()
 
 void GameWindow::on_Talk_clicked()
 {
-	// Check if player has keys
-	if (game->player->has_item("Car Keys") && game->get_current_location()->get_name() == "The Fishing Spot")
+	// Check if player is alone at location
+	if (game->get_current_location()->get_characters().size() > 0)
 	{
-		qDebug() << "YOU WIN!";
-		on_Quit_clicked();
-		EndGameDialog *ending = new EndGameDialog();
-		ending->show();
+		// Check if player has keys
+		if (game->player->has_item("Car Keys") && game->get_current_location()->get_name() == "The Fishing Spot")
+		{
+			on_Quit_clicked();
+			EndGameDialog *ending = new EndGameDialog();
+			ending->show();
+		}
+		else
+		{
+			TalkDialog *dialogue = new TalkDialog(game->get_current_location()->get_characters());
+			dialogue->setFixedSize(dialogue->geometry().width(), dialogue->geometry().height()); // Prevent resize
+			dialogue->show();
+		}
 	}
 	else
 	{
-		TalkDialog *dialogue = new TalkDialog(game->get_current_location()->get_characters());
-		dialogue->setFixedSize(dialogue->geometry().width(), dialogue->geometry().height()); // Prevent resize
-		dialogue->show();
+		ui->contentList->addItem("> Talk to ' '\nWhile you have spent many a soliloquy in deep conversation" \
+			" with yourself, you don't quite feel this is the right time to do it... You might think you're crazy!\n");
+		ui->contentList->addItem("What would you like to do?\n");
+		ui->contentList->scrollToBottom();
 	}
 }
 

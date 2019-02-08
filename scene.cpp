@@ -10,17 +10,12 @@
  *
  * I'm in space! || I wanna be a spaceman! || Starve the trees!
  * - Complete the game while holding your breath.
- * NOTE: If they leave the original area, they do not get the achievement
+ * NOTE: If they leave the original area without breath, they do not get the achievement
  *
  * Achievement unlocked!
  * - You unlocked an achievement!
  *
- * Next tasks:
- * - Dialogue
- * - Menu system
  */
-
-
 
 Scene::Scene() :
 	scene_objects(new QMap<QString, Object>()), scene_items(new QMap<QString, Item>()),
@@ -36,17 +31,11 @@ Scene::Scene() :
 
 Scene::~Scene()
 {
-	qDebug() << "Deleting scene_objects";
 	delete scene_objects;
-	qDebug() << "Scene_objects deleted";
 	delete scene_items;
-	qDebug() << "Deleting scene_items";
 	delete scene_characters;
-	qDebug() << "Deleting scene_characters";
 	delete player;
-	qDebug() << "Deleting player";
 	delete scene_locations;
-	qDebug() << "Deleting scene";
 }
 
 /**
@@ -55,9 +44,10 @@ Scene::~Scene()
  */
 void Scene::start()
 {
-	/* Movement */
 	// Start at fishing spot
 	current_location = &(*scene_locations)["The Fishing Spot"];
+
+	/* Movement */
 	// The Fishing Spot <--> By the Lake
 	(*scene_locations)["The Fishing Spot"].set_adjacency('E', &(*scene_locations)["By the Lake"]);
 	(*scene_locations)["By the Lake"].set_adjacency('W', &(*scene_locations)["The Fishing Spot"]);
@@ -69,7 +59,7 @@ void Scene::start()
 	(*scene_locations)["Barely See the Fishing Spot"].set_adjacency('W', &(*scene_locations)["Far Down the Lake"]);
 	// The Fishing Spot || By the Car
 	(*scene_locations)["The Fishing Spot"].set_adjacency('S', &(*scene_locations)["By the Car"]);
-	(*scene_locations)["By the Car"].set_adjacency('N', &(*scene_locations)["By the Lake"]);
+	(*scene_locations)["By the Car"].set_adjacency('N', &(*scene_locations)["The Fishing Spot"]);
 	// By the Car <--> Outer Treeline
 	(*scene_locations)["By the Car"].set_adjacency('E', &(*scene_locations)["Outer Treeline"]);
 	(*scene_locations)["Outer Treeline"].set_adjacency('W', &(*scene_locations)["By the Car"]);
@@ -82,12 +72,50 @@ void Scene::start()
 	// Barely See the Fishing Spot || Outer Woodland (NE)
 	(*scene_locations)["Outer Woodland (NE)"].set_adjacency('N', &(*scene_locations)["Barely See the Fishing Spot"]);
 	(*scene_locations)["Barely See the Fishing Spot"].set_adjacency('S', &(*scene_locations)["Outer Woodland (NE)"]);
+	// Outer Woodland (N) || Inner Woodland (W)
+	(*scene_locations)["Outer Woodland (N)"].set_adjacency('S', &(*scene_locations)["Inner Woodland (W)"]);
+	(*scene_locations)["Inner Woodland (W)"].set_adjacency('N', &(*scene_locations)["Outer Woodland (N)"]);
+	// Outer Woodland (NE) || Inner Woodland (E)
+	(*scene_locations)["Outer Woodland (NE)"].set_adjacency('S', &(*scene_locations)["Inner Woodland (E)"]);
+	(*scene_locations)["Inner Woodland (E)"].set_adjacency('N', &(*scene_locations)["Outer Woodland (NE)"]);
+	// Inner Woodland (W) <--> Inner Woodland (E)
+	(*scene_locations)["Inner Woodland (W)"].set_adjacency('E', &(*scene_locations)["Inner Woodland (E)"]);
+	(*scene_locations)["Inner Woodland (E)"].set_adjacency('W', &(*scene_locations)["Inner Woodland (W)"]);
+	// Inner Woodland (W), Inner Woodland (E) | Junction
+	(*scene_locations)["Inner Woodland (W)"].set_adjacency('S', &(*scene_locations)["Junction"]);
+	(*scene_locations)["Inner Woodland (E)"].set_adjacency('S', &(*scene_locations)["Junction"]);
+	// Junction | Small Grove
+	(*scene_locations)["Junction"].set_adjacency('N', &(*scene_locations)["Small Grove"]);
+	// Strange Trees <--> Small Grove
+	(*scene_locations)["Strange Trees"].set_adjacency('E', &(*scene_locations)["Small Grove"]);
+	(*scene_locations)["Small Grove"].set_adjacency('W', &(*scene_locations)["Strange Trees"]);
+	// Strange Trees, Junction, Clear Pond | Old Path
+	(*scene_locations)["Strange Trees"].set_adjacency('S', &(*scene_locations)["Old Path"]);
+	(*scene_locations)["Junction"].set_adjacency('S', &(*scene_locations)["Old Path"]);
+	(*scene_locations)["Clear Pond"].set_adjacency('S', &(*scene_locations)["Old Path"]);
+	// Old Path | Clearing
+	(*scene_locations)["Old Path"].set_adjacency('E', &(*scene_locations)["Strange Trees"]);
+	(*scene_locations)["Old Path"].set_adjacency('N', &(*scene_locations)["Clearing"]);
+	(*scene_locations)["Old Path"].set_adjacency('S', &(*scene_locations)["Clearing"]);
+	(*scene_locations)["Old Path"].set_adjacency('W', &(*scene_locations)["Clearing"]);
+	// Clearing |Small Burrow
+	(*scene_locations)["Clearing"].set_adjacency('E', &(*scene_locations)["Small Burrow"]);
+	(*scene_locations)["Clearing"].set_adjacency('N', &(*scene_locations)["Small Burrow"]);
+	(*scene_locations)["Clearing"].set_adjacency('S', &(*scene_locations)["Small Burrow"]);
+	(*scene_locations)["Clearing"].set_adjacency('W', &(*scene_locations)["Small Burrow"]);
+	// Small Burrow | Inner Woodland (W), Inner Woodland (E)
+	(*scene_locations)["Small Burrow"].set_adjacency('E', &(*scene_locations)["Inner Woodland (W)"]);
+	(*scene_locations)["Small Burrow"].set_adjacency('N', &(*scene_locations)["Inner Woodland (E)"]);
+	(*scene_locations)["Small Burrow"].set_adjacency('S', &(*scene_locations)["Inner Woodland (E)"]);
+	(*scene_locations)["Small Burrow"].set_adjacency('W', &(*scene_locations)["Inner Woodland (W)"]);
 
 	/* Objects */
 	(*scene_locations)["The Fishing Spot"].add_object(&(*scene_objects)["Stool"]);
+	(*scene_locations)["Small Burrow"].add_object(&(*scene_objects)["Burrow"]);
+	(*scene_locations)["Small Grove"].add_object(&(*scene_objects)["Tracks"]);
 
 	/* Items in Objects */
-	(*scene_objects)["Stool"].add_item(&(*scene_items)["Car Keys"]);
+	(*scene_objects)["Burrow"].add_item(&(*scene_items)["Car Keys"]);
 
 	/* Items at locations */
 	// Fishing Spot
@@ -97,7 +125,6 @@ void Scene::start()
 	/* Characters */
 	// The Fishing Spot
 	(*scene_locations)["The Fishing Spot"].add_character(&(*scene_characters)["Grandad"]);
-	(*scene_locations)["The Fishing Spot"].add_character(&(*scene_characters)["Robert"]);
 }
 
 /**

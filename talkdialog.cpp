@@ -18,7 +18,6 @@ TalkDialog::TalkDialog(const QMap<QString, Character *> &characters, QWidget *pa
 TalkDialog::~TalkDialog()
 {
 	delete ui;
-	qDebug() << "Deleting chat dialogue box";
 }
 
 void TalkDialog::update_dialogue_options(QString character_name)
@@ -44,21 +43,18 @@ void TalkDialog::on_Speak_clicked()
 				+ (*people_at_location[character])["firstOption"] + "\"");
 			ui->dialogueList->addItem(character + ": \""
 				+ (*people_at_location[character])["firstResponse"] + "\"\n");
-			qDebug() << "Option 0";
 			break;
 		case 1:
 			ui->dialogueList->addItem("> You: \""
 				+ (*people_at_location[character])["secondOption"] + "\"");
 			ui->dialogueList->addItem(character + ": \""
 				+ (*people_at_location[character])["secondResponse"] + "\"\n");
-			qDebug() << "Option 1";
 			break;
 		case 2:
 			ui->dialogueList->addItem("> You: \""
 				+ (*people_at_location[character])["thirdOption"] + "\"");
 			ui->dialogueList->addItem(character + ": \""
 				+ (*people_at_location[character])["thirdResponse"] + "\"\n");
-			qDebug() << "Option 2";
 			break;
 	}
 	ui->dialogueList->scrollToBottom();
@@ -67,11 +63,9 @@ void TalkDialog::on_Speak_clicked()
 void TalkDialog::on_characterSelector_currentIndexChanged(const QString &arg1)
 {
 	update_dialogue_options(arg1);
-	qDebug() << "Changed to: " << arg1;
 }
 
 void TalkDialog::on_Done_clicked()
 {
 	this->close();
-	qDebug() << "Dialogue window closed";
 }

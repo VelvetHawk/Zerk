@@ -14,15 +14,12 @@ Menu::Menu(QStackedWidget *parent) : QWidget(parent),
 Menu::~Menu()
 {
 	delete ui;
-	qDebug() << "Menu deleted";
 }
 
 void Menu::on_Play_clicked()
 {
 	window->setCurrentIndex(1);
-	qDebug() << "Attempting to start";
 	qobject_cast<GameWindow *>(window->widget(1))->start();
-	qDebug() << "Play Clicked";
 }
 
 void Menu::on_Quit_clicked()

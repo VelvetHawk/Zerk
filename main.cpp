@@ -23,8 +23,6 @@ int main(int argc, char *argv[])
 
 	windows.setFixedSize(gameWindow.geometry().width(), gameWindow.geometry().height()); // Prevent resize
 
-	// Start game
-	qDebug() << "~~~~~~~Calling start~~~~~~~~~~~~~";
 	// Show menu
 	windows.setCurrentIndex(0);
 	windows.show();

@@ -41,7 +41,8 @@
     <item>
         <name>Car Keys</name>
         <description>
-            The keys to your way home.
+            The keys to your way home. I should probably go and talk to
+            grandad now that I've found them.
         </description>
         <attributes>
             <pickupable>false</pickupable>

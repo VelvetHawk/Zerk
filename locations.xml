@@ -1,7 +1,10 @@
 <locations>
     <location>
         <name>The Fishing Spot</name>
-        <description>An old dock, primarily used for fishing.</description>
+        <description>
+            An old dock, primarily used for fishing. You see your grandfather resting on his
+            fishing stool.
+        </description>
         <directions>
             <north>Can't go North.</north>
             <east>Can't go East.</east>
@@ -27,7 +30,7 @@
     <location>
         <name>Far Down the Lake</name>
         <description>
-            ADD DESCRIPTION HERE
+            You're starting to get reasonably far from the fishing spot. You sure you want to be this far?
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -40,7 +43,8 @@
     <location>
         <name>Barely See the Fishing Spot</name>
         <description>
-            ADD DESCRIPTION HERE
+            You can barely see the fishing spot from here anymore. I don't think it's wise to continue east,
+            for fear of getting lost. But otherwise, the view of the lake here is quite lovely.
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -53,7 +57,8 @@
     <location>
         <name>By the Car</name>
         <description>
-            ADD DESCRIPTION HERE
+            Grandad's old chevrolet. It's old, but gets us there and back safely. Now if only I could
+            find those keys...
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -66,7 +71,8 @@
     <location>
         <name>Outer Treeline</name>
         <description>
-            ADD DESCRIPTION HERE
+            Starting to stray away from the lakeside... Our
+            adventure awaits!
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -79,7 +85,9 @@
     <location>
         <name>Outer Woodland (N)</name>
         <description>
-            ADD DESCRIPTION HERE
+            A woodland is a low-density forest with plenty of sunlight
+            and limited shade. It forms an open habitat. This is the
+            north side of this one.
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -92,7 +100,11 @@
     <location>
         <name>Outer Woodland (NE)</name>
         <description>
-            ADD DESCRIPTION HERE
+            Woodlands have an understory of shrubs and herbaceous plants including
+            grasses. Woodlands grade into shrubland in drier conditions or in early
+            stages of plant succession. Higher densities and areas of trees, with
+            largely closed canopy, and nearly continuous shade and are often called
+            forests. This is the north-eastern side of this one.
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -105,7 +117,11 @@
     <location>
         <name>Junction</name>
         <description>
-            ADD DESCRIPTION HERE
+            Two roads diverged in a yellow wood,
+            and sorry I could not travel both
+            and be one traveler, long I stood
+            and looked down one as far as I could
+            to where it bent in the undergrowth
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -118,7 +134,8 @@
     <location>
         <name>Small Grove</name>
         <description>
-            ADD DESCRIPTION HERE
+            This is where grandad said he got the bait...
+            Should probably look around and see what's here.
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -131,7 +148,9 @@
     <location>
         <name>Strange Trees</name>
         <description>
-            ADD DESCRIPTION HERE
+            I could've sworn I've passed those trees more than once?
+            Though, why is one of them covered in moss and the other
+            wet...?
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -144,7 +163,8 @@
     <location>
         <name>Inner Woodland (W)</name>
         <description>
-            ADD DESCRIPTION HERE
+            Someone gave me the wrong directions to a massage parlor once,
+            it rubbed me the wrong way. Nobody to blame this time!
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -157,7 +177,8 @@
     <location>
         <name>Inner Woodland (E)</name>
         <description>
-            ADD DESCRIPTION HERE
+            What's a moth's life motto? Always look on the bright side!
+            Now if only I could do the same and hope I'm not lost...
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -170,7 +191,8 @@
     <location>
         <name>Small Burrow</name>
         <description>
-            ADD DESCRIPTION HERE
+            So, this is where those paw prints lead... Now, what's inside
+            that burrow?
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -183,7 +205,9 @@
     <location>
         <name>Clear Pond</name>
         <description>
-            ADD DESCRIPTION HERE
+            I can see myself! Now if only I had a Koi pond with water
+            this clear... The question is, how did this pond get here
+            in the first place?
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -196,7 +220,8 @@
     <location>
         <name>Clearing</name>
         <description>
-            ADD DESCRIPTION HERE
+            The sunlight coming through the clearing is a vibrant gold,
+            with streaks of crimson. Should find those keys before it gets dark!
         </description>
         <directions>
             <north>Can't go North.</north>
@@ -209,8 +234,11 @@
     <location>
         <name>Old Path</name>
         <description>
-            ADD DESCRIPTION HERE
-            Robert Frost - Road Not Taken
+            I shall be telling this with a sigh
+            somewhere ages and ages hence:
+            Two roads diverged in a wood, and I,
+            I took the one less traveled by,
+            and that has made all the difference.
         </description>
         <directions>
             <north>Can't go North.</north>
